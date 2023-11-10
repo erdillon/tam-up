@@ -1,0 +1,15 @@
+node_modules/
+.DS_Store
+
+# Ignore built ts files
+dist/**/*
+
+# Ignore .env file as it holds secrets
+.env
+
+budibase
+build
+OLD
+
+*.csv
+state
