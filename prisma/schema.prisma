@@ -1,0 +1,74 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ==================================================
+// CW1 resolution
+// ==================================================
+// ==================================================
+model Host {
+  id              String   @id @default(uuid())
+  hostname        String   @unique
+  resolvedRecords String[]
+  createdAt       DateTime @default(now())
+
+  labels String[]
+
+  lastResolveTime   DateTime?
+  lastResolveResult ResolveStatus?
+
+  @@map("hosts")
+}
+
+enum ResolveStatus {
+  RESOLVED
+  UNRESOLVED
+  ERROR
+}
+
+// ==================================================
+model Website {
+  id        String @id @default(uuid())
+  name      String
+  hostname  String
+  accountId String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Crawl Status
+  lastCrawlResult String?
+  lastCrawlStatus CrawlStatus?
+  lastCrawledAt   DateTime?
+
+  externalLinks Link[]
+  visitedPages  String[]
+
+  @@map("websites")
+}
+
+model Link {
+  id        String  @id @default(uuid())
+  url       String
+  domain    String?
+  website   Website @relation(fields: [websiteId], references: [id])
+  websiteId String
+
+  resolvedCnames String[]
+
+  @@map("links")
+}
+
+enum CrawlStatus {
+  // The signal was sent to the corresponding entity workflow
+  PENDING
+  //The webpage was crawled
+  COMPLETE
+  // An error happened
+  ERROR
+}

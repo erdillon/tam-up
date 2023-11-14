@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "alwaysStrict": true,
+        "baseUrl": ".",
+        "esModuleInterop": true,
+        "lib": [
+            "ES2018"
+        ],
+        "module": "CommonJS",
+        "moduleResolution": "Node",
+        "noImplicitAny": true,
+        "outDir": ".build",
+        "preserveConstEnums": true,
+        "resolveJsonModule": true,
+        "rootDir": ".",
+        "skipLibCheck": true,
+        "strictNullChecks": true,
+        "target": "ES2018",
+        "inlineSourceMap": true,
+        "declaration": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "noErrorTruncation": true,
+        "types": [
+            "node"
+        ]
+    },
+    "include": [
+        "./src"
+    ]
+}
