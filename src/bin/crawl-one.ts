@@ -7,7 +7,7 @@ import { saveCrawlResultActivity } from '../activities/save-crawl-result.activit
 async function crawlOne (accountId: string): Promise<void> {
   const prisma = new PrismaClient()
 
-  const webpage = await prisma.webpage.findFirst({
+  const webpage = await prisma.website.findFirst({
     where: {
       accountId
     }

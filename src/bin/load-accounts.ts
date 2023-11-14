@@ -15,13 +15,13 @@ parse(fileContent, { columns: true }, async (err, records) => {
 
   for (const record of records) {
     try {
-      const webpage = {
+      const website = {
         name: record['Account Name'],
         accountId: record['CaseSafeID: Account Id'],
         hostname: record.Website
       }
-      console.log('loading:', webpage)
-      await prisma.webpage.create({ data: webpage })
+      console.log('loading:', website)
+      await prisma.website.create({ data: website })
     } catch (e) {
       console.error(e)
     }

@@ -55,6 +55,7 @@ model Website {
 model Link {
   id        String  @id @default(uuid())
   url       String
+  domain    String?
   website   Website @relation(fields: [websiteId], references: [id])
   websiteId String
 

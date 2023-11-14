@@ -13,3 +13,7 @@ OLD
 
 *.csv
 state
+
+# Secrets for Airbyte
+hmac.key
+logixboard-bi-*.json

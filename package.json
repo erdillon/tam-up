@@ -10,11 +10,13 @@
         "prisma:generate": "dotenv -- prisma generate",
         "prisma:db-push": "dotenv -- prisma db push",
         "start-local-dependencies": "dotenv -- docker compose -f local-dependencies.docker-compose.yaml up",
+        "start-airbyte": "cd airbyte; dotenv -- docker compose -f airbyte.docker-compose.yaml up",
         "generate-urls": "ts-node -r tsconfig-paths/register -r dotenv/config  ./src/bin/generate-urls.ts",
         "start:hosts-resolver": "ts-node -r tsconfig-paths/register -r dotenv/config ./src/bin/start-hosts-resolver.ts",
         "start:worker:local": "ts-node -r tsconfig-paths/register -r dotenv/config ./src/worker.ts",
         "start:worker:nodemon": "nodemon --exec ts-node -r tsconfig-paths/register -r dotenv/config ./src/worker.ts",
         "start:webpages-crawler": "ts-node -r tsconfig-paths/register -r dotenv/config ./src/bin/start-webpages-crawler.ts",
+        "run:top-urls": "ts-node -r tsconfig-paths/register -r dotenv/config ./src/bin/domains.ts",
         "run:crawl-one": "ts-node -r tsconfig-paths/register -r dotenv/config ./src/bin/crawl-one.ts",
         "run:load-accounts": "ts-node -r tsconfig-paths/register -r dotenv/config ./src/bin/load-accounts.ts"
     },

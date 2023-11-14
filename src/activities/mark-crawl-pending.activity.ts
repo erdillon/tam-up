@@ -7,7 +7,7 @@ export interface MarkCrawlPendingActivityInput {
 
 export async function markCrawlPendingActivity (input: MarkCrawlPendingActivityInput, prisma: PrismaClient): Promise<void> {
   const { id } = input
-  await prisma.webpage.update({
+  await prisma.website.update({
     where: {
       id
     },
