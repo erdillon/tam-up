@@ -10,7 +10,7 @@ export type SelectWebpagesBatchActivityOutput = Array<{
 
 export async function selectWebpagesBatchActivity (
   prisma: PrismaClient): Promise<SelectWebpagesBatchActivityOutput> {
-  const results = await prisma.webpage.findMany({
+  const results = await prisma.website.findMany({
     where: {
       lastCrawledAt: null
     },
